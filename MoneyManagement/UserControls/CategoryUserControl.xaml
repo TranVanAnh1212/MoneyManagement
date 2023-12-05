@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="MoneyManagement.UserControls.CategoryUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MoneyManagement.UserControls"
+             mc:Ignorable="d" 
+             x:Name="category_uc">
+    <Border Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="5">
+                <TextBlock HorizontalAlignment="Left" Text="{Binding ElementName=category_uc, Path=Title}" Height="20.149" TextWrapping="Wrap" VerticalAlignment="Top" Width="89.6" FontSize="14" TextAlignment="Right"></TextBlock>
+            </Grid>
+            
+            <Grid Margin="5" Grid.Column="1">
+                <ComboBox HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="266"
+                    ItemsSource="{Binding ElementName=category_uc, Path=CategoryList_uc}" DisplayMemberPath="Name"
+                      SelectedItem="{Binding ElementName=category_uc, Path=CategorySelectedItem}"/>
+            </Grid>
+
+            <Grid Grid.Column="2" Margin="5">
+                <Button x:Name="addNewCategory" Click="ActionExcuting" Content="Thêm" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="75"/>
+            </Grid>
+
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,63 @@
+﻿<Page x:Class="MoneyManagement.View.Login.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:local="clr-namespace:MoneyManagement.View.Login"
+      mc:Ignorable="d" 
+      DataContext="{StaticResource RegVM}"
+      d:DesignHeight="500" d:DesignWidth="920"
+      Foreground="White"
+      FontSize="15"
+      Title="RegisterPage">
+
+    <Border Background="Transparent" BorderBrush="Transparent" BorderThickness="0" CornerRadius="10">
+        <Grid>
+            <Rectangle Fill="#FF050505" HorizontalAlignment="Left" Height="500.6" Margin="-0.6,-0.6,0,0" RadiusY="15.4" RadiusX="15.4" Stroke="Black" VerticalAlignment="Top" Width="920.6"/>
+            <TextBlock FontFamily="Vivaldi" Height="94.8" Margin="200.8,10,200.8,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" Width="518.4" Foreground="#FFDDD5D5" FontSize="72" TextAlignment="Center"/>
+            <Rectangle Fill="#FF232323" Height="318" Margin="193.6,137.8,193.6,0" RadiusY="15.4" RadiusX="15.4" Stroke="Black" VerticalAlignment="Top" Width="532.8"/>
+            <TextBlock Height="29.4" Margin="200.8,173.266,0,0" TextWrapping="Wrap" Text="Email or username" VerticalAlignment="Top" Width="175.733" HorizontalAlignment="Left" TextAlignment="Right"/>
+            <TextBox Height="29.4" Text="{Binding Username}" Margin="392.667,167.933,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310.934" HorizontalAlignment="Left" BorderBrush="#89AEAEAE"/>
+            <TextBlock Height="29.4" Margin="220,213.131,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="156.533" HorizontalAlignment="Left" TextAlignment="Right"/>
+            <PasswordBox x:Name="txt_Password" Height="29.4" Margin="392.667,207.798,0,0" VerticalAlignment="Top" Width="310.934" HorizontalAlignment="Left" BorderBrush="#89AEAEAE">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PasswordChanged">
+                        <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=txt_Password}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </PasswordBox>
+            <TextBlock Height="29.4" Margin="220,252.997,0,0" TextWrapping="Wrap" Text="Confirm password" VerticalAlignment="Top" Width="156.533" HorizontalAlignment="Left" TextAlignment="Right"/>
+            <PasswordBox Height="29.4" x:Name="txt_confirmPass" Margin="392.667,247.664,0,0" VerticalAlignment="Top" Width="310.934" HorizontalAlignment="Left" BorderBrush="#89AEAEAE">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PasswordChanged">
+                        <i:InvokeCommandAction Command="{Binding ConfirmedPasswordCommand}" CommandParameter="{Binding ElementName=txt_confirmPass}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </PasswordBox>
+            <CheckBox Content="Show password" HorizontalAlignment="Left" Height="30.4" Margin="392.667,287.467,0,0" VerticalAlignment="Top" Width="188.801"/>
+            <Button Content="Register" Command="{Binding RegisterCommand}" x:Name="RegisterBtn" HorizontalAlignment="Left" Height="31.733" Margin="271.067,339.867,0,0" VerticalAlignment="Top" Width="126.4"/>
+            <Button Content="Cancel" x:Name="CancelBtn" Click="CancelBtn_Click" HorizontalAlignment="Left" Height="31.733" Margin="525.201,339.867,0,0" VerticalAlignment="Top" Width="126.4" Background="#FFE24242"/>
+            <TextBlock Height="25.067" x:Name="backToLogin" MouseDown="backToLogin_MouseDown" Cursor="Hand" Margin="301.333,399.333,301.333,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317.334" TextAlignment="Center">
+                <Run Foreground="#FF979797" FontSize="12" Text="You have an account? "/>
+                <Run Foreground="#FFD6D6D6" Text="Login -&gt;"/>
+            </TextBlock>
+            <Image Width="43.2" Source="/Data/Images/googleICon.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="776,144.865,0,0" Height="44.8" />
+            <Image Width="43.2" Source="/Data/Images/twitterIcon.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="776,207.798,0,0" />
+            <Image Width="43.2" Source="/Data/Images/facebookIcon.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="776,274.667,0,0" />
+            <TextBlock HorizontalAlignment="Left" Height="28.8" Margin="705.4,-40,0,0" TextWrapping="Wrap" Text="Other" Width="94.4" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="16">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90.008"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Rectangle Fill="#FFE2E2E2" HorizontalAlignment="Left" Height="51.865" Margin="747,137.8,0,0" Stroke="Black" VerticalAlignment="Top" Width="4"/>
+            <Rectangle Fill="#FFE2E2E2" HorizontalAlignment="Left" Height="181.133" Margin="747,274.667,0,0" Stroke="Black" VerticalAlignment="Top" Width="4"/>
+
+        </Grid>
+    </Border>
+</Page>

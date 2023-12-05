@@ -1,0 +1,173 @@
+﻿<Page x:Class="MoneyManagement.View.Statistical.StatisticalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MoneyManagement.View.Statistical"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:uc="clr-namespace:MoneyManagement.UserControls"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      mc:Ignorable="d" 
+      DataContext="{StaticResource StatisticalVM}"
+      d:DesignHeight="750" d:DesignWidth="1240"
+      Title="StatisticalPage"
+      x:Name="StatisticalWindow"      
+      
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="Black"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="16"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="Transparent"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+      >
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadStatisticalCommand}" 
+                                   CommandParameter="{Binding ElementName=StatisticalWindow}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0 0 0 10">
+            <!--Nút backward-->
+            <Button HorizontalAlignment="Left" Background="Transparent" BorderBrush="#303030"
+                    VerticalAlignment="Top" Margin="10 0 0 0" Height="25" Width="25"
+                    Command="{x:Static NavigationCommands.BrowseBack}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Back">
+                <materialDesign:PackIcon Kind="KeyboardArrowLeft" Height="20" Width="20" />
+            </Button>
+
+            <!--Nút forward-->
+            <Button HorizontalAlignment="Left" Background="Transparent" BorderBrush="#303030" VerticalAlignment="Top"
+                    Height="25" Width="25" Margin="40,0,0,0" Command="{x:Static NavigationCommands.BrowseForward}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Forward">
+                <materialDesign:PackIcon Kind="KeyboardArrowRight" Height="20" Width="20" />
+            </Button>
+
+            <DatePicker SelectedDate="{Binding FromDate}" HorizontalAlignment="Left" Height="32" Margin="11.733,35,0,0" VerticalAlignment="Top" Width="167.733"/>
+            <ToggleButton Style="{StaticResource toggleBtn}" IsThreeState="False" IsChecked="{Binding Is3DayChecked}" Tag="threeDaySort" Command="{Binding ThreeDaySortCommand}" Content="3 ngày" HorizontalAlignment="Left" Margin="516,35,0,-0.2" VerticalAlignment="Top" Width="99"/>
+            <ToggleButton Style="{StaticResource toggleBtn}" IsThreeState="False" IsChecked="{Binding Is7DayChecked}" Tag="sevenDaySort" Command="{Binding SevenDaySortCommand}" Content="7 ngày" HorizontalAlignment="Left" Margin="630,35,0,-0.2" VerticalAlignment="Top" Width="99"/>
+            <ToggleButton Style="{StaticResource toggleBtn}" IsThreeState="False" IsChecked="{Binding Is15DayChecked}" Tag="fifteenDaySort" Command="{Binding FifteenDaySortCommand}" Content="15 ngày" HorizontalAlignment="Left" Margin="745,35,0,-0.2" VerticalAlignment="Top" Width="100"/>
+            <ToggleButton Style="{StaticResource toggleBtn}" IsThreeState="False" IsChecked="{Binding Is30DayChecked}" Tag="thirdtyDaySort" Command="{Binding ThirdtyDaySortCommand}" Content="30 ngày" HorizontalAlignment="Left" Margin="866,35,0,-0.2" VerticalAlignment="Top" Width="99"/>
+            <DatePicker SelectedDate="{Binding ToDate}" HorizontalAlignment="Left" Height="32" Margin="206.4,35,0,0" VerticalAlignment="Top" Width="167.733"/>
+            <Button HorizontalAlignment="Left" Margin="408.266,35,0,0" VerticalAlignment="Top" Width="34.933" Padding="4" Command="{Binding SuccessCommand}">
+                <materialDesign:PackIcon Kind="Tick" />
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Height="20.7" Margin="92,4.3,0,0" TextWrapping="Wrap" Text="Thống kê chi tiêu" VerticalAlignment="Top" Width="198.4"/>
+            <Button Content="Nhập Excel" HorizontalAlignment="Left" Margin="1120,35,0,-0.2" VerticalAlignment="Top" Width="110" Background="#FF2D92BF"/>
+            <Button Content="Xuất Excel" HorizontalAlignment="Left" Margin="1005,35,0,-0.2" VerticalAlignment="Top" Width="110" Background="#FF1F9C40"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="253*"/>
+                <ColumnDefinition Width="367*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0 5 0 0">
+                <!--<Rectangle Fill="#FFE2E2E2" HorizontalAlignment="Left" Height="93.6" Stroke="#00000000" VerticalAlignment="Top" Width="424.866" RadiusY="4.5" RadiusX="4.5" Margin="10.8,10.2,0,0"/>
+                <TextBlock HorizontalAlignment="Left" Height="19.2" Margin="142.132,27.6,0,0" TextWrapping="Wrap" Text="Chi tiêu gia đình" VerticalAlignment="Top" Width="125.133"/>
+                <TextBlock HorizontalAlignment="Left" Height="19.2" Margin="142.132,68.6,0,0" TextWrapping="Wrap" 
+                            Text="100.000" VerticalAlignment="Top" Width="125.133"/>
+                <Image Source="/Data/Images/familyIcon.png" Margin="42,27.6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="86.4" Width="58.4" />
+                <materialDesign:PackIcon Kind="ArrowRight" Width="50" Height="60.2" Margin="370,27.6,0,0" />
+                
+                <Rectangle Fill="#FFE2E2E2" HorizontalAlignment="Left" Height="93.6" Stroke="#00000000" VerticalAlignment="Top" Width="424.866" RadiusY="4.5" RadiusX="4.5" Margin="10.8,119,0,0"/>
+                <TextBlock HorizontalAlignment="Left" Height="19.2" Margin="142.132,136.4,0,0" TextWrapping="Wrap" Text="Chi tiêu cá nhân" VerticalAlignment="Top" Width="125.133"/>
+                <TextBlock HorizontalAlignment="Left" Height="19.2" Margin="142.132,177.4,0,0" TextWrapping="Wrap" 
+                    Text="100.000" VerticalAlignment="Top" Width="125.133"/>
+                <Image Source="/MoneyManagement;component/Data/Images/personalIcon.png" Margin="42,136.4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="86.4" Width="58.4" />
+                <materialDesign:PackIcon Kind="ArrowRight" Width="50" Height="60.2" Margin="370,136.4,0,0" />-->
+
+                <uc:InforCart Title="Chi tiêu gia đình" Price="{Binding F_TotalAmount, StringFormat='{}{0:N0} vnđ'}" Image="/Data/Images/familyIcon.png" IsActive="True" IsTechnical="True"/>
+                <uc:InforCart Title="Chi tiêu cá nhân" Price="{Binding P_TotalAmount, StringFormat='{}{0:N0} vnđ'}" Image="/Data/Images/personalIcon.png" IsActive="True" IsTechnical="True"/>
+                <uc:InforCart Title="Thu nhập" Price="?.???.??? vnđ" Image="/Data/Images/personalIcon.png" IsActive="false" IsTechnical="false"/>
+            </StackPanel>
+
+            <Grid Grid.Column="1">
+                <Border Style="{StaticResource borderStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="51*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="Mua nhiều nhất" VerticalAlignment="Top" Width="219.734"/>
+
+                        <ListView Margin="0,32,0,0" Height="252" ItemsSource="{Binding ListBuyMost}" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.RowSpan="2">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding Name}" />
+                                    <GridViewColumn Header="Tống số lượng" DisplayMemberBinding="{Binding TotalQuantity}"/>
+                                    <GridViewColumn Header="tổng giá (vnđ)" DisplayMemberBinding="{Binding TotalPrice, StringFormat='{}{0:N0}'}"/>
+                                    <!--<GridViewColumn Header="Category" DisplayMemberBinding="{Binding CategName}"/>-->
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <ToggleButton Style="{StaticResource toggleBtn}" IsChecked="{Binding IsHighToLow}" Command="{Binding HighToLowSortCommand}" Content="Cao đến thấp" HorizontalAlignment="Left" Height="27" Margin="225,0,0,0" VerticalAlignment="Top" Width="124.8" Padding="1,4"/>
+                        <ToggleButton Style="{StaticResource toggleBtn}" IsChecked="{Binding IsLowToHigh}" Command="{Binding LowToHighSortCommand}" Content="Thấp đến cao" HorizontalAlignment="Left" Height="27" Margin="368,0,0,0" VerticalAlignment="Top" Width="124.8" Padding="1,4"/>
+                        <ComboBox Height="25" Margin="526,0,29,55">
+                            <ComboBoxItem >Chi tiêu gia đình</ComboBoxItem>
+                            <ComboBoxItem >Chi tiêu cá nhân</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Panel.ZIndex="1" Orientation="Vertical" Margin="0,8,20,0" VerticalAlignment="top" HorizontalAlignment="Right" Width="171.901" Height="94.4">
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Width="171.901" Margin="0,10,0,0">
+                    <Border Height="12" Background="#7166f9" CornerRadius="10" Margin="6.032,3.6,153.068,3.6" Width="12.8"/>
+                    <TextBlock Text="Chi tiêu gia đình" VerticalAlignment="Top" Foreground="#FF404040" HorizontalAlignment="Left" Width="121.94" Margin="32,0,0,0"/>
+                </Grid>
+                <Grid Margin="0,7,0,0">
+                    <Border Width="12" Height="12" Background="#101a28" CornerRadius="10" Margin="7.077,3.6,152.823,3.6"/>
+                    <TextBlock Text="Chi tiêu cá nhân" VerticalAlignment="Center" Foreground="#FF404040" Margin="32.236,1.2,0,-1.2"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="171.901" Margin="0,10,0,0">
+                    <Border Width="12" Height="12" Background="#FF732086" CornerRadius="10" Margin="7.579,3.6,0,3.6" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Thu nhập" VerticalAlignment="Center" Foreground="#FF404040" Margin="33.203,0,-6.003,0"/>
+                </Grid>
+            </StackPanel>
+
+            <lvc:CartesianChart FontSize="14" LegendLocation="None" Margin="20,0,225.168,10">
+                <lvc:CartesianChart.DataTooltip>
+                    <lvc:DefaultTooltip Background="#24336a" Foreground="#d5e2ff"/>
+                </lvc:CartesianChart.DataTooltip>
+
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Foreground="#bcc6c0" ShowLabels="true" Labels="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec">
+                        <lvc:Axis.Separator>
+                            <lvc:Separator StrokeThickness="0" Step="1"/>
+                        </lvc:Axis.Separator>
+                    </lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Foreground="#bcc6c0" ShowLabels="true" MinValue="0">
+                        <lvc:Axis.Separator>
+                            <lvc:Separator StrokeThickness="0"/>
+                        </lvc:Axis.Separator>
+                    </lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+
+                <lvc:CartesianChart.Series>
+                    <lvc:StackedColumnSeries Title="Chi tiêu gia đình" Fill="#7166f9" MaxColumnWidth="25" Values="{Binding FSumValue}"/>
+                    <lvc:StackedColumnSeries Title="Chi tiêu cá nhân" Fill="#101a28" MaxColumnWidth="25" Values="{Binding PSumValue}"/>
+                    <lvc:StackedColumnSeries Title="Thu nhập" Fill="#FF732086" MaxColumnWidth="25" Values="{Binding IncomeSumValue}"/>
+                </lvc:CartesianChart.Series>
+            </lvc:CartesianChart>
+        </Grid>
+    </Grid>
+</Page>

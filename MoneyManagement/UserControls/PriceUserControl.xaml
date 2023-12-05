@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="MoneyManagement.UserControls.PriceUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MoneyManagement.UserControls"
+             mc:Ignorable="d" 
+             x:Name="price_uc">
+    <Border Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="5">
+                <TextBlock HorizontalAlignment="Left" Height="20.149" TextWrapping="Wrap" Text="{Binding ElementName=price_uc, Path=Title}" VerticalAlignment="Top" Width="89.6" FontSize="14" TextAlignment="Right"/>
+            </Grid>
+            
+            <Grid Margin="5" Grid.Column="1">
+                <TextBox HorizontalAlignment="Left" Height="24.949" Text="{Binding ElementName=price_uc, Path=PriceValue}" TextChanged="txt_Price_TextChanged"
+                     TextWrapping="Wrap" VerticalAlignment="Top" Width="368.8" FontSize="14" x:Name="txt_Price"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

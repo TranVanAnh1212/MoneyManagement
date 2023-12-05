@@ -1,0 +1,81 @@
+﻿<Window x:Class="MoneyManagement.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoneyManagement"
+        xmlns:uc="clr-namespace:MoneyManagement.UserControls"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="549" Width="920" 
+        x:Name="loginWindow"
+        DataContext="{StaticResource LoginVM}"
+        Loaded="loginWindow_Loaded"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" ResizeMode="NoResize" Background="Transparent"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="Black"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="16"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        >
+    <Window.Resources>
+        <Storyboard x:Key="LoginFailed_Storyboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="42"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="130"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Border BorderBrush="Transparent" BorderThickness="0" CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <uc:ControlBarUC/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                
+                
+                <Grid>
+                    <Frame x:Name="LoginFrame" NavigationUIVisibility="Hidden"/>
+                </Grid>
+
+                <!--Thông báo-->
+                <Grid x:Name="grid1" Margin="169,-113,169,568" Panel.ZIndex="5" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Rectangle Fill="#FFF02121" Height="54" RadiusY="4.9" RadiusX="4.9" Stroke="Black" VerticalAlignment="Top" Width="582"/>
+                    <TextBlock HorizontalAlignment="Left" Height="34.4" Margin="46.4,10.4,0,0" 
+                           TextWrapping="Wrap" Text="{Binding Message}" 
+                           VerticalAlignment="Top" Width="436.8" FontSize="20" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="34.8" Margin="529.59,10.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37.6" Foreground="White" FontSize="22">
+                    <InlineUIContainer>
+                        <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" />
+                    </InlineUIContainer>
+                    </TextBlock>
+                </Grid>
+
+                <!--End Thông báo-->
+
+            </Grid>           
+            
+        </Grid>
+        
+        
+    </Border>
+</Window>

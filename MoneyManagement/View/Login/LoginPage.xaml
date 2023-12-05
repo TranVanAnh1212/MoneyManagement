@@ -1,0 +1,249 @@
+﻿<Page x:Class="MoneyManagement.View.Login.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MoneyManagement.View.Login"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      mc:Ignorable="d" 
+      DataContext="{StaticResource LoginVM}"
+      d:DesignHeight="500" d:DesignWidth="920"
+      Title="LoginPage">
+
+    <Page.Resources>
+        <Storyboard x:Key="Login_Storyboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Panel">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="58"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="196"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="318"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="420"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(ScrollViewer.VerticalScrollBarVisibility)" Storyboard.TargetName="Panel">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static ScrollBarVisibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static ScrollBarVisibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="89.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="192.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="191.215"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1.02475"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1.102"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.033"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1.0765"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1.151"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1.102"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-0.60000000000000009"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1.773"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.081"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Username">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="txt_Password">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btn_Login">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tbl_ForgotPassword">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tbl_Register">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="48"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="123"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="258"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid>
+        <Rectangle Fill="#FF050505" Stroke="Black" Width="920" RadiusY="15.4" RadiusX="15.4"/>
+        <Grid x:Name="grid" Margin="0" Height="86.55" Width="435.181" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle Fill="White" Height="62.088" Margin="17.928,6.406,0,0" Stroke="Black" VerticalAlignment="Top" Width="11.009" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="36.444"/>
+                        <RotateTransform Angle="27.231"/>
+                        <TranslateTransform Y="10.81" X="-2.04"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" Height="56.153" Margin="35.586,-21.01,0,0" Stroke="Black" VerticalAlignment="Top" Width="7.808" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="26.607"/>
+                        <RotateTransform Angle="90.203"/>
+                        <TranslateTransform Y="10.805" X="-3.347"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" Height="28.424" Margin="2.674,35.159,0,0" Stroke="White" VerticalAlignment="Top" Width="5.518" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="36.444"/>
+                        <RotateTransform Angle="153.514"/>
+                        <TranslateTransform Y="10.81" X="-2.04"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" Height="56.997" Margin="45.042,12.314,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.29" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="16.267"/>
+                        <RotateTransform Angle="163.465"/>
+                        <TranslateTransform Y="7.278" X="-3.483"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" Height="23.608" Margin="34.607,33.277,0,0" Stroke="White" VerticalAlignment="Top" Width="6.29" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="0.97" ScaleX="1.044"/>
+                        <SkewTransform AngleX="-14.135" AngleY="-2.727"/>
+                        <RotateTransform Angle="75.96"/>
+                        <TranslateTransform Y="7.272" X="-7.584"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <TextBlock Height="62.4" Margin="72.781,16.55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361.6" Foreground="White" FontSize="36" Text="Money Management" FontWeight="Bold" HorizontalAlignment="Left"/>
+
+        </Grid>
+        <Grid x:Name="Panel" Margin="241.31,101.15,243.31,10" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle x:Name="rectangle" Fill="#FF232323" Height="385.05" Margin="0.2,0,0,0" RadiusY="15.4" RadiusX="15.4" Stroke="Black" Width="435.18" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="textBlock" Height="81.067" Margin="0.4,1.85,0.2,0" TextWrapping="Wrap" Text="Welcome" VerticalAlignment="Top" Foreground="#FFB9B9B9" TextAlignment="Center" FontFamily="Vivaldi" FontSize="80" FontWeight="Bold"/>
+            <TextBlock x:Name="textBlock1" Height="32" Margin="0,85.417,0.6,0" TextWrapping="Wrap" Text="Login with your account" Foreground="White" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+            <TextBlock x:Name="textBlock2" Height="22.117" Margin="30,119,30.2,0" TextWrapping="Wrap" Text="Username" Foreground="Wheat" VerticalAlignment="Top" FontSize="18"/>
+            <TextBox x:Name="txt_Username" Foreground="#fff" HorizontalAlignment="Left" 
+                         Height="24.8" Margin="29.933,142.617,0,0" TextWrapping="Wrap" 
+                         VerticalAlignment="Top" Width="375.466" VerticalContentAlignment="Center" 
+                         FontSize="16" Text="{Binding Username}" Padding="0"/>
+            <TextBlock x:Name="textBlock3" Height="21.917" Margin="30,177,30.2,0" TextWrapping="Wrap" Text="Password" Foreground="Wheat" VerticalAlignment="Top" FontSize="18"/>
+            <PasswordBox x:Name="txt_Password" Foreground="#fff"
+                         HorizontalAlignment="Left" Height="25" Margin="29.933,202.417,0,0" VerticalAlignment="Top" Width="375.466" 
+                         VerticalContentAlignment="Center" FontSize="14" Padding="0">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PasswordChanged">
+                        <i:InvokeCommandAction Command="{Binding PasswordChangedCommand, Mode=TwoWay}" 
+                                                                   CommandParameter="{Binding ElementName=txt_Password}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </PasswordBox>
+
+            <Button x:Name="btn_Login" Content="Login now" 
+                        HorizontalAlignment="Left" Height="34.4" 
+                        Margin="28.59,273.25,0,0" 
+                        Command="{Binding LoginCommand}"
+                        CommandParameter="{Binding ElementName=loginWindow}"
+                        VerticalAlignment="Top" Width="173.609" 
+                        Background="#FF0082D1" Foreground="White" 
+                        FontWeight="Bold" FontSize="18" Cursor="Hand"/>
+            <TextBlock x:Name="tbl_ForgotPassword" Height="27.2" Margin="28.59,312.65,29.981,0" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Top" FontSize="16" TextAlignment="Center"><Run Foreground="#FF979797" Text="Forgot password ?"/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="tbl_Register" Height="27.2" Margin="29.933,342.847,28.638,0" TextWrapping="Wrap" Cursor="Hand"
+                       Foreground="White" VerticalAlignment="Top" FontSize="16" TextAlignment="Center" MouseDown="tbl_Register_MouseDown">
+                <Run Foreground="#FF979797" Text="you registed yet ? "/>
+                <Run Text="Register now -&gt;"/>
+                <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="PreviewMouseDown">
+                    <i:InvokeCommandAction Command="{Binding RegisterCommand}" /></i:EventTrigger>
+                </i:Interaction.Triggers>-->
+            </TextBlock>
+            <Button x:Name="btn_Exit" Content="Exit" Command="{Binding CloseWindowCommand}"
+                        HorizontalAlignment="Left" Height="34.4" 
+                        Margin="226.399,273.25,0,0"
+                        VerticalAlignment="Top" Width="179" 
+                        Background="#FFD13500" Foreground="White" 
+                        FontWeight="Bold" FontSize="18" Cursor="Hand"/>
+        </Grid>
+        <Grid x:Name="grid1" Margin="640,112.2,159.2,15.4" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+
+            <Image Width="43.2" Source="/Data/Images/googleICon.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70.4,101.4,0,0" />
+            <Image Width="43.2" Source="/Data/Images/facebookIcon.png" Margin="70.4,165.4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Image Width="43.2" Source="/Data/Images/twitterIcon.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70.4,227.8,0,0" />
+            <TextBlock HorizontalAlignment="Left" Height="27.2" Margin="0,175.4,0,0" TextWrapping="Wrap" Text="Other" VerticalAlignment="Top" Width="102.4" Foreground="White" FontSize="16" TextAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.757"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Rectangle Fill="#FFC3C3C3" HorizontalAlignment="Left" Height="144.6" Margin="49.6,227.8,0,0" Stroke="Black" VerticalAlignment="Top" Width="4"/>
+            <Rectangle Fill="#FFC3C3C3" HorizontalAlignment="Left" Height="144.6" Margin="49.6,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="4"/>
+
+        </Grid>
+
+    </Grid>
+</Page>
